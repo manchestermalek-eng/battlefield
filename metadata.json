@@ -1,0 +1,6 @@
+{
+  "name": "The Battle of the Somme · Interactive 3D Battlefield",
+  "description": "An interactive 3D battlefield diorama of the Battle of the Somme, 1916 — explore trenches, No Man's Land, weapons of the First World War, and trench life lore.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

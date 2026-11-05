@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Barlow Condensed', sans-serif;
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-military: 'Black Ops One', cursive, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #120f0b;
+    color: #f7efe0;
+  }
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-military {
+  font-family: var(--font-military);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.somme-panel {
+  -webkit-backdrop-filter: blur(20px) saturate(115%);
+  backdrop-filter: blur(20px) saturate(115%);
+  background: linear-gradient(158deg, rgba(38, 33, 26, 0.92) 0%, rgba(17, 15, 12, 0.96) 100%);
+  border: 1px solid rgba(228, 202, 152, 0.18);
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.somme-kicker {
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.somme-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(228, 202, 152, 0.28) transparent;
+}
+
+.somme-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.somme-scroll::-webkit-scrollbar-thumb {
+  background: rgba(228, 202, 152, 0.28);
+  border-radius: 999px;
+}
+
+.somme-vignette {
+  background: radial-gradient(120% 90% at 50% 40%, rgba(0, 0, 0, 0) 45%, rgba(8, 7, 5, 0.72) 100%);
+}
+
+@keyframes sommeFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.somme-fade-up {
+  animation: 0.5s cubic-bezier(0.22, 1, 0.36, 1) both sommeFadeUp;
+}
+
+/* Base Hotspot Label */
+.hs-label {
+  pointer-events: auto;
+  cursor: pointer;
+  white-space: nowrap;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  will-change: transform;
+  border-radius: 999px;
+  padding: 4px 11px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  transition: all 0.22s ease-out;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* User Request Color Rules:
+   - British trenches: RED
+   - German trenches: GREEN
+   - No Man's Land: YELLOW
+*/
+
+/* British Sector: RED */
+.hs-label-british {
+  color: #fecaca;
+  background: rgba(30, 14, 14, 0.88);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 10px rgba(239, 68, 68, 0.2);
+}
+.hs-label-british:hover {
+  color: #ffffff;
+  background: rgba(50, 16, 16, 0.95);
+  border-color: rgba(248, 113, 113, 0.85);
+  box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.5), 0 8px 24px rgba(220, 38, 38, 0.4);
+}
+.hs-label-british.is-active {
+  color: #1a0606;
+  background: #ef4444;
+  border-color: #fca5a5;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.7);
+}
+
+/* No Man's Land: YELLOW */
+.hs-label-nml {
+  color: #fef08a;
+  background: rgba(28, 25, 12, 0.88);
+  border: 1px solid rgba(234, 179, 8, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 10px rgba(234, 179, 8, 0.2);
+}
+.hs-label-nml:hover {
+  color: #ffffff;
+  background: rgba(44, 38, 14, 0.95);
+  border-color: rgba(250, 204, 21, 0.85);
+  box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.5), 0 8px 24px rgba(234, 179, 8, 0.4);
+}
+.hs-label-nml.is-active {
+  color: #201704;
+  background: #eab308;
+  border-color: #fde047;
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.7);
+}
+
+/* German Sector: GREEN */
+.hs-label-german {
+  color: #bbf7d0;
+  background: rgba(12, 28, 18, 0.88);
+  border: 1px solid rgba(34, 197, 94, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 10px rgba(34, 197, 94, 0.2);
+}
+.hs-label-german:hover {
+  color: #ffffff;
+  background: rgba(16, 44, 24, 0.95);
+  border-color: rgba(74, 222, 128, 0.85);
+  box-shadow: 0 0 0 1px rgba(74, 222, 128, 0.5), 0 8px 24px rgba(34, 197, 94, 0.4);
+}
+.hs-label-german.is-active {
+  color: #061a0d;
+  background: #22c55e;
+  border-color: #86efac;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.7);
+}
